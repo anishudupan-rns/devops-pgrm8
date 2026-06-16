@@ -2,7 +2,11 @@ pipeline{
     agent any
     stages{
         stage('checkout'){
-            steps { git url: 'http://github.com/anishudupan-rns/devops-pgrm7.git', branch:'main' }
+            
+            steps { 
+            sh 'mvn --version'
+            sh 'java --version'
+            git url: 'http://github.com/anishudupan-rns/devops-pgrm7.git', branch:'main' }
         }
         stage('Build'){
             steps { sh 'mvn clean package' }
